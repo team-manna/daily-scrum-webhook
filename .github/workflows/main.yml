@@ -2,7 +2,7 @@ name: run scrm bot at 11 am
 
 on:
   schedule:
-    - cron: "48 17 * * *" # utc time
+    - cron: "00 2 * * *" # utc time
 jobs:
   cron:
     runs-on: ubuntu-latest
