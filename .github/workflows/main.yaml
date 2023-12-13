@@ -1,0 +1,29 @@
+name: run scrm bot at 11 am
+
+on:
+  schedule:
+    - cron: "30 18 * * 1-6" # utc time
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - name: Install dependencies
+        run: yarn install --prefer-offline
+
+      - name: Generate Environment Variables File
+        run: |
+          echo "WEBHOOK_URL=$WEBHOOK_URL" >> .env
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+
+      - name: Run bot
+        run: yarn msg-send
