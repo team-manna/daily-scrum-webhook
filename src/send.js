@@ -13,7 +13,6 @@ async function sendMessage() {
     .addField(
       "✅ 액션아이템 채널에 [우리 팀원들이 몽글에 담고 싶은 가치]를 생각해서 적어주세요 !"
     );
-
   hook.send(embed);
 }
 
