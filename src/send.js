@@ -5,16 +5,14 @@ const hook = new Webhook(process.env.WEBHOOK_URL);
 
 async function sendMessage() {
   const embed = new MessageBuilder()
-    .setTitle("🚨 데일리스크럼 알림 🚨")
-    .setColor("#00ff00")
+    .setTitle("❤️ 만나팀 모두 오늘 하루도 화이팅 ❤️")
+    .setColor("#ffd400")
     .setDescription(
-      "🌞 굿모닝 좋은 아침 🌞\n💪 모두들 데일리 스크럼 작성해주세요 !"
+      "지금은 2차 파일럿 프로그램 개발 기간입니다."
     )
     .addField(
-      "유의사항",
-      "✅ 한 일, 할 일, 문제 상황을 적어주세요!\n✅ 오늘 오후 6시 이전까지 모두 올려주세요!"
+      "✅ 액션아이템 채널에 [우리 팀원들이 몽글에 담고 싶은 가치]를 생각해서 적어주세요 !"
     );
-
   hook.send(embed);
 }
 
